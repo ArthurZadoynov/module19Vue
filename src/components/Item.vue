@@ -40,22 +40,27 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 0;
+  margin: 10px 0;
+  padding: 5px 0;
   position: relative;
   font-size: 24px;
   border-bottom: 1px solid rgb(197, 196, 196);
   gap: 20px;
   word-wrap: break-word;
+  width: 100%;
 
   div {
     display: flex;
+    align-items: center;
     gap: 20px;
   }
 
   p {
     text-align: left;
-    max-width: 600px;
+    flex-grow: 1;
+    max-width: calc(100% - 140px);
     width: 100%;
+    margin: 0;
   }
 
   > p del {
@@ -136,6 +141,47 @@ export default {
       transform: scale(1.1);
       box-shadow: 0 0 4px #d8d8d8;
       transition: 0.3s;
+    }
+  }
+}
+
+@media (max-width: 780px) {
+  .todo-item {
+    gap: 2px;
+
+    div {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    p {
+      max-width: calc(100% - 20%);
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .todo-item {
+    p {
+      font-size: 16px;
+    }
+
+    .delete-btn {
+      width: 40px;
+      height: 40px;
+
+      svg {
+        width: 23px;
+        height: 23px;
+      }
+
+      &:hover {
+        background-color: rgb(245, 207, 207);
+        transform: scale(1.1);
+        box-shadow: 0 0 4px #d8d8d8;
+        transition: 0.3s;
+      }
     }
   }
 }
